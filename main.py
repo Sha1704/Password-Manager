@@ -16,13 +16,13 @@ def main():
     if getattr(sys, 'frozen', False):
         # Running from .exe
         base_path = os.path.dirname(sys.executable)
+        env_path = os.path.join(base_path, "_internal", ".env")
     else:
         # Running from source
         base_path = os.path.dirname(os.path.abspath(__file__))
+        env_path = os.path.join(base_path, ".env")
 
-    env_path = os.path.join(base_path, ".env")
-
-    load_dotenv(env_path)
+    load_dotenv(dotenv_path=env_path, override=True)
 
     # Load database credentials from environment
     database_host = os.getenv("DB_HOST")

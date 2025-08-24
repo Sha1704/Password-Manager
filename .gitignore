@@ -9,3 +9,5 @@ dist
 build
 .vscode
 MyPasswordManager.spec
+Password manager.iss
+logo.ico
